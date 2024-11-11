@@ -7,6 +7,10 @@ int *sieve(int maxlimit, int *primeCount) {
   int sq = sqrt((double)maxlimit) + 1;
   int *flags = (int *)malloc(sizeof(int) * (maxlimit + 1));
   memset(flags, 0, maxlimit + 1); // memset to any non-zero value does not work
+  // memset sets byte to (1) and not the integer
+  // 1 int = 4 bytes
+  // therefore memset result is
+  // 01010101 (base 16) =  16843009 (base 10)
   flags[0] = 1;
   flags[1] = 1;
   flags[2] = 0;
