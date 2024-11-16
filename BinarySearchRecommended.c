@@ -1,6 +1,14 @@
+/******************************************************************************
+
+                            Online C Debugger.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Debug" button to debug program.
+
+*******************************************************************************/
+
 #include <stdio.h>
 
-int binarySearchRight(int arr[], int n, int searchThis) {
+int binarySearchLeft(int arr[], int n, int searchThis) {
   int mid = 0, start = 0, end = n - 1;
 
   while (start <= end) {
@@ -16,7 +24,7 @@ int binarySearchRight(int arr[], int n, int searchThis) {
 }
 
 
-int binarySearchLeft(int arr[], int n, int searchThis) {
+int binarySearchRight(int arr[], int n, int searchThis) {
   int mid = 0, start = 0, end = n - 1;
 
   while (start <= end) {
@@ -42,6 +50,11 @@ int main() {
   index = binarySearchRight(arr, n, searchThis);
   printf("\nBSRIGHT Index: %d, Value: %d", index, arr[index]);
   searchThis = 9999;
+  index = binarySearchLeft(arr, n, searchThis);
+  printf("\nBSLEFT Index: %d, Value: %d", index, arr[index]);
+  index = binarySearchRight(arr, n, searchThis);
+  printf("\nBSRIGHT Index: %d, Value: %d", index, arr[index]);
+  searchThis = 1;
   index = binarySearchLeft(arr, n, searchThis);
   printf("\nBSLEFT Index: %d, Value: %d", index, arr[index]);
   index = binarySearchRight(arr, n, searchThis);
