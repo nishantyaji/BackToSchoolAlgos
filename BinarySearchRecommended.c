@@ -29,6 +29,30 @@ int binarySearchRight(int arr[], int n, int searchThis) {
   return start;
 }
 
+int * insort(int arr[], int n, int insertThis) {
+    int idx = binarySearchRight(arr, n, insertThis);
+    int * newArr = (int *) malloc(sizeof(int) * (n+1));
+    int i = 0;
+    for(i = 0; i < idx; i++) {
+        newArr[i] = arr[i];
+    }
+    newArr[idx] = insertThis;
+    for(i = idx; i < n; i++) {
+        newArr[i+1] = arr[i];
+    }
+    return newArr;
+}
+
+void display(int * arr, int n) {
+    int i = 0;
+    printf("\n");
+    for(i = 0; i < n; i++) {
+        printf("%d, ", arr[i]);
+    }
+    printf("\n");
+}
+
+
 int main() {
   printf("Binary Search.\n");
   int arr[] = {1, 1, 5, 5, 5, 6, 6, 9, 10, 10,10,10,10,11, 100, 345, 456, 777, 9999, 9999, 9999};
