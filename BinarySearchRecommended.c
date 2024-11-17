@@ -74,4 +74,12 @@ int main() {
   printf("\nBSLEFT Index: %d, Value: %d", index, arr[index]);
   index = binarySearchRight(arr, n, searchThis);
   printf("\nBSRIGHT Index: %d, Value: %d", index, arr[index]);
+  searchThis = 2;
+  index = binarySearchLeft(arr, n, searchThis);
+  printf("\nBSLEFT Index: %d, Value: %d", index, arr[index]);
+  index = binarySearchRight(arr, n, searchThis);
+  printf("\nBSRIGHT Index: %d, Value: %d", index, arr[index]);
+  
+  int * newArr = insort(arr, n, 7); 
+  display(newArr, n + 1);
 }
