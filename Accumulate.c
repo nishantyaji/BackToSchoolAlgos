@@ -1,5 +1,6 @@
 /**
 * Similar to accumulate in Python or scan in Kotlin
+* Check the script ./LeetCode/Problem3152_SpecialArrayII.c for usage
 */
 
 /**
