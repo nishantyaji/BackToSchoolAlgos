@@ -22,7 +22,6 @@ int * accumulate(int * arr, int arrSize, void * fn, bool useInit, int init, int 
             start = 1;
             * retSize = arrSize + 1;
         } else {
-            res = (int *)malloc(sizeof(int) * arrSize);
             start = 0;
         }
         res[start] = arr[0];
