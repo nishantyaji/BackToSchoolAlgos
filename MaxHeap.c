@@ -81,7 +81,8 @@ int heapPop(int * heap, int * heapSize) {
     int temp = heap[0];
     swap(heap, (*heapSize) - 1, 0);
     * heapSize = * heapSize - 1;
-    heapify(heap, heapSize);
+    // The following should be heapifyNode and not heapify
+    heapifyNode(heap, heapSize, 0);
     return temp;
 }
 
