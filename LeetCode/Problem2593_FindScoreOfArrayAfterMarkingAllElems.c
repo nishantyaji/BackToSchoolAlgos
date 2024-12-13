@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
 void swap(long long * arr, int i, int j) {
     long long temp = arr[i];
     arr[i] = arr[j];
