@@ -1,7 +1,3 @@
-/**
-* This results in TLE
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -73,7 +69,8 @@ long long heapPop(long long * heap, int * heapSize) {
     long long temp = heap[0];
     swap(heap, (*heapSize) - 1, 0);
     * heapSize = * heapSize - 1;
-    heapify(heap, heapSize);
+    heapifyNode(heap, heapSize, 0); 
+    // This should be heapifyNode and not heapify 
     return temp;
 }
 
