@@ -70,7 +70,8 @@ int heapPop(int * heap, int * heapSize) {
     int temp = heap[0];
     swap(heap, (*heapSize) - 1, 0);
     * heapSize = * heapSize - 1;
-    heapify(heap, heapSize);
+    // It should be heapifyNode and not inefficient heapfify
+    heapifyNode(heap, heapSize, 0);
     return temp;
 }
 
