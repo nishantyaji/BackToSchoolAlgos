@@ -3,6 +3,13 @@
 #include <math.h>
 
 
+#include <stdio.h>
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
+
+
 void swap(int * arr, int i, int j) {
     int temp = arr[i];
     arr[i] = arr[j];
@@ -38,16 +45,20 @@ void heapifyNode(int * heap, int * heapSize, int i) {
         if(ge(heap[lch], heap[i]) == true) {
             swap(heap, lch, i);
             heapifyNode(heap, heapSize, lch);
+    
         }
     } else{
         if(ge(heap[lch], heap[rch]) == true && ge(heap[lch], heap[i]) == true) {
             swap(heap, lch, i);
             heapifyNode(heap, heapSize, lch);
+    
         } else if(ge(heap[rch], heap[lch]) == true && ge(heap[rch], heap[i]) == true ) {
             swap(heap, rch, i);
             heapifyNode(heap, heapSize, rch);
+    
         }
     }
+    
 }
 
 void heapify(int * heap, int * heapSize) {
@@ -78,7 +89,8 @@ int heapPop(int * heap, int * heapSize) {
     int temp = heap[0];
     swap(heap, (*heapSize) - 1, 0);
     * heapSize = * heapSize - 1;
-    heapify(heap, heapSize);
+    // The following should be heapifyNode and not heapify
+    heapifyNode(heap, heapSize, 0);
     return temp;
 }
 
@@ -95,7 +107,8 @@ void displayHeap(int * heap, int * heapSize) {
             for(j = 2 * i; j < 2 * depth; j++) {
                 printf(" ");
             }
-            printf("%d", heap[idx]);          
+            printf("%d", heap[idx]);
+            
         }
         if(ended == 1) {
             break;
@@ -122,10 +135,10 @@ long long pickGifts(int* gifts, int giftsSize, int k) {
     while(heapSize > 0) {
         int temp = heapPop(h, &heapSize);
         res += temp;
+
     }
     return res;
 }
-
 
 int main()
 {
