@@ -2,6 +2,9 @@
 #include <stdbool.h>
 #include <math.h>
 
+/**
+* For example refer: LeetCode/Problem2558_TakeGiftsFromRichestPile.c
+*/
 
 void swap(int * arr, int i, int j) {
     int temp = arr[i];
