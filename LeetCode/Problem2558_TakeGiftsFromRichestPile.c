@@ -2,14 +2,6 @@
 #include <stdbool.h>
 #include <math.h>
 
-
-#include <stdio.h>
-
-#include <stdio.h>
-#include <stdbool.h>
-#include <math.h>
-
-
 void swap(int * arr, int i, int j) {
     int temp = arr[i];
     arr[i] = arr[j];
