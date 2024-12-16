@@ -3,6 +3,10 @@
 #include <stdlib.h>
 #include <math.h>
 
+/**
+* For example refer to LeetCode/Problem3264_FinalArrayStateAfterKMultiplicationOpsI.c
+*/
+
 typedef struct {
   long long priority;
   int value;
