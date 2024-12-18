@@ -29,6 +29,8 @@ void push(Stack * stack, Elem * elem) {
 Elem * pop(Stack * stack) {
     Elem * elem = (Elem *) malloc(sizeof(Elem));
     elem->ch = stack->end->ch;
+    elem->prev = NULL;  // necessary to avoid some strange/errant pointer access
+    elem->next = NULL;  // necessary to avoid some strange/errant pointer access
     elem->count = stack->end->count;
     if(stack->end->prev != NULL)
         stack->end = stack->end->prev;
@@ -61,12 +63,14 @@ char* repeatLimitedString(char* s, int repeatLimit) {
         alphaCount[charValue]++;
     }
     Stack * st = (Stack *) malloc(sizeof(Stack));
-
+    st->length = 0;  // necessary to avoid some strange/errant pointer access
     for(i = 0; i < 26; i++) {
         if(alphaCount[i] >0) {
             Elem * elem = (Elem *) malloc(sizeof(Elem));
             elem->ch = i;
             elem->count = alphaCount[i];
+            elem->prev = NULL;  // necessary to avoid some strange/errant pointer access
+            elem->next = NULL;  // necessary to avoid some strange/errant pointer access
             push(st, elem);
         }
     }
@@ -103,20 +107,4 @@ char* repeatLimitedString(char* s, int repeatLimit) {
     }
     
     return res;
-}
-
-int main()
-{
-    char * s = "ccccccccc";
-    int limit = 3;
-    char * res = repeatLimitedString(s, limit);
-    printf("\n]%s", res);
-    s = "aababab";
-    limit = 2;
-    res = repeatLimitedString(s, limit);
-    printf("\n]%s", res);
-    s = "cczazcc";
-    limit = 3;
-    res = repeatLimitedString(s, limit);
-    printf("\n]%s", res);
 }
