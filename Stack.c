@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h> 
+#include <string.h>
 
 typedef struct Elem{
     int value;
@@ -13,32 +14,34 @@ typedef struct Stack {
   struct Elem * end;
 } Stack;
 
-void push(Stack * stack, int toAdd) {
-    Elem * elem = (Elem *) malloc(sizeof(Elem));
-    elem->value = toAdd;
+void push(Stack * stack, Elem * elem) {
     if(stack->length == 0) {
         stack->head = elem;
     } else{
         elem->prev = stack->end;
         stack->end->next = elem;
     }
+    elem->next = NULL;
     stack->end = elem;
     stack->length = stack->length + 1;
 }
 
-int pop(Stack * stack) {
-    int returnVal;
-    returnVal = stack->end->value;
+Elem * pop(Stack * stack) {
+    Elem * elem = (Elem *) malloc(sizeof(Elem));
+    elem->value = stack->end->value;
+    elem->prev = NULL;
+    elem->next = NULL;
     if(stack->end->prev != NULL)
         stack->end = stack->end->prev;
     stack->end->next = NULL;
     stack->length = stack->length - 1;
-    return returnVal;
+    return elem;
 }
 
-int display(Stack * stack) {
+// Helper function. Not a core function.
+void display(Stack * stack) {
     Elem * pres = stack->head;
-    printf("\nDisplaying contents of stack, len: %d, :", stack->length);
+    printf("\nContents of len: %d", stack->length);
     while(pres != NULL) {
         printf("\n%d", pres->value);
         pres = pres->next;
@@ -46,25 +49,34 @@ int display(Stack * stack) {
     printf("\n");
 }
 
+// Helper function. Not a core function.
+Elem * getElem(int a) {
+    Elem * elem = (Elem *) malloc(sizeof(Elem));
+    elem->prev = NULL;
+    elem->next = NULL;
+    elem->value = a;
+    return elem;
+}
+
 int main()
 {
     printf("Hello World");
     Stack * st = (Stack *) malloc(sizeof(Stack));
-    push(st, 1);
+    push(st, getElem(1));
     display(st);
-    push(st, 2);
+    push(st, getElem(2));
     display(st);
-    push(st, 5);
+    push(st, getElem(5));
     display(st);
     int stLen = st->length;
     int i = 0;
     for(i = 0; i < stLen; i++) {
-        int popped = pop(st);
-        printf("\nPopped: %d", popped);
+        Elem * popped = pop(st);
+        printf("\nPopped: %d", popped->value);
     }
-    push(st, 2);
+    push(st, getElem(2));
     display(st);
-    push(st, 5);
+    push(st, getElem(5));
     display(st);
     
     return 0;
