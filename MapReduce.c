@@ -37,7 +37,7 @@ int main()
         printf("\n%d", mapRes[i]);
     }
     printf("\nReduced: %d", reduce(redfn, mapRes, &arrSize, 0));
-    printf("\nReduced chained: %d", reduce(redfn, map(doubled, arr, &arrSize), &arrSize, 0));
+    printf("\nReduced chained: %d", reduce(add, map(doubled, arr, &arrSize), &arrSize, 0));
 
     return 0;
 }
