@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include<stdbool.h>
+#include <stdbool.h>
 #include <math.h>
 
 int * binaryRepresentation(int num, bool isZeroIndexLSB, int * resSize) {
