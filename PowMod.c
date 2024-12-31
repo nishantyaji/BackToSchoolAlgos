@@ -28,6 +28,7 @@ long powGeneral(int a, int pw, int base) {
 		}
 		num = (num * num) % base;
 	}
+	// free(bin);
 	return res;
 }
 
