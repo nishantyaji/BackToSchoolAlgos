@@ -27,13 +27,13 @@ char* shiftingLetters(char* s, int** shifts, int shiftsSize, int* shiftsColSize)
     
     char aChar = 'a', zChar = 'z';
     int aInt = (int) aChar;
-    int zInt = (int) zChar
+    int zInt = (int) zChar;
     for(i = 0; i < sLen; i++) {
         cum += dp[i];
-        cum_mod = ((cum % 26) + 26) % 26;
-        temp = (int)s[i] + cum_mod;
-        if(temp > zInt) temp = temp - zInt + aInt - 1
+        int cum_mod = ((cum % 26) + 26) % 26;
+        int temp = (int)s[i] + cum_mod;
+        if(temp > zInt) temp = temp - zInt + aInt - 1;
         res[i] = (char) temp;
     }
-    return res
+    return res;
 }
