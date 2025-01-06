@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int* minOperations(char* boxes, int* returnSize) {
 	int sLen = strlen(boxes), i = 0, length = 0;
