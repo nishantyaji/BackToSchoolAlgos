@@ -14,6 +14,7 @@ int * map(void * fn, int * arr, int * arrSize) {
     return res;
 }
 
+// Check Problem2425_BitwiseXorOfAllPairings.c
 int reduce(void * fn, int * arr, int * arrSize, int initVal) {
     int * (*fun)(int, int) = fn;
     int res = initVal;
