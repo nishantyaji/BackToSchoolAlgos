@@ -116,34 +116,4 @@ void freeHashMap(HashMap *map) {
 	}
 	free(map);
 }
-
-int tupleSameProduct(int* nums, int numsSize) {
-    HashMap*  map = createHashMap();
-    int i = 0, j =0, prod = 0;
-	for(i = 0; i < numsSize; i++) {
-		for(j = i + 1; j < numsSize; j++) {
-			prod = nums[i] * nums[j];
-			int val = get(map, prod);
-			if(val >= 0) {
-			    put(map, prod, val + 1);
-			} else {
-				put(map, prod, 1);
-			}
-		}
-	}
-	int res = 0;
-	
-	for (i = 0; i < TABLE_SIZE; i++) {
-		Node *current = map->buckets[i];
-		while (current != NULL) {
-		    int temp = current->value;
-		    if(temp > 1) {
-		        printf("\n%d %d", current->key, temp);
-		        res += (4 * temp * (temp - 1));       
-		    }
-			current = current->next;
-		}
-	}
-	return res;
-    
-}
+// For implementation check Problem 1726
