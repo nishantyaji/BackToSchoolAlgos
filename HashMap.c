@@ -19,7 +19,7 @@ typedef struct HashMap {
 
 // Hash function (simple modulus-based hash function)
 int hash(int key) {
-	return key % TABLE_SIZE;
+	return (key % TABLE_SIZE + TABLE_SIZE) % TABLE_SIZE;
 }
 
 // Initialize a new HashMap
