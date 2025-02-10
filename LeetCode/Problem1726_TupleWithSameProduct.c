@@ -97,7 +97,6 @@ void printHashMap(HashMap *map) {
 		printf("Bucket %d: ", i);
 		Node *current = map->buckets[i];
 		while (current != NULL) {
-			printf("%d -> ", current->key);
 			current = current->next;
 		}
 		printf("NULL\n");
